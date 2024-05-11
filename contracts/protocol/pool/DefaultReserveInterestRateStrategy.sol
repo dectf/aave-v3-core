@@ -156,6 +156,7 @@ contract DefaultReserveInterestRateStrategy is IDefaultInterestRateStrategy {
 
   /// @inheritdoc IReserveInterestRateStrategy
   function calculateInterestRates(
+    //mike here is to calculate interest rate
     DataTypes.CalculateInterestRatesParams memory params
   ) public view override returns (uint256, uint256, uint256) {
     CalcInterestRatesLocalVars memory vars;
@@ -168,7 +169,7 @@ contract DefaultReserveInterestRateStrategy is IDefaultInterestRateStrategy {
 
     if (vars.totalDebt != 0) {
       vars.stableToTotalDebtRatio = params.totalStableDebt.rayDiv(vars.totalDebt);
-      vars.availableLiquidity =
+      vars.availableLiquidity = //mike use aToken instead of underlying token to calculate rate
         IERC20(params.reserve).balanceOf(params.aToken) +
         params.liquidityAdded -
         params.liquidityTaken;
