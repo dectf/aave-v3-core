@@ -156,7 +156,7 @@ contract DefaultReserveInterestRateStrategy is IDefaultInterestRateStrategy {
 
   /// @inheritdoc IReserveInterestRateStrategy
   function calculateInterestRates(
-    //mike here is to calculate interest rate
+    //mike here is to calculate interest rate, refer to https://docs.aave.com/developers/core-contracts/pool#getreservedata
     DataTypes.CalculateInterestRatesParams memory params
   ) public view override returns (uint256, uint256, uint256) {
     CalcInterestRatesLocalVars memory vars;
